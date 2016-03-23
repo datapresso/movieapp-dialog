@@ -1,0 +1,1 @@
+curl -u "9f99e0fd-0324-4f8e-8dfc-64a3bea6c2bc":"3ghfHwYk8utT" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers"

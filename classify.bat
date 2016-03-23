@@ -1,0 +1,1 @@
+curl -u "9f99e0fd-0324-4f8e-8dfc-64a3bea6c2bc":"3ghfHwYk8utT" -F training_data=@./src/main/resources/classifier_files/trainSet.csv -F training_metadata="{\"language\":\"en\",\"name\":\"My Classifier\"}" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers"

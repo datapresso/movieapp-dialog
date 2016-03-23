@@ -1,0 +1,1 @@
+curl -X POST -F "file=@./src/main/resources/dialog_files/movieapp-dialog+classifier-file.xml" -F "name=dpdialog1" https://gateway.watsonplatform.net/dialog/api/v1/dialogs -u "1d8183fb-f58e-4641-9984-4871106c3900:bozi5OmbQM0q"
