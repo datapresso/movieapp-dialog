@@ -1,0 +1,9 @@
+---
+applications:
+-
+  host: tsadialog
+  name: tsadialog
+  path: c:\workspace\dp\tsaapp-dialog\target\tsaapp-dialog.war
+  domain: mybluemix.net
+  instances: 1
+  memory: 512M

@@ -1,0 +1,1 @@
+cf login -a api.w3ibm.bluemix.net -u cding@us.ibm.com -p wenwen2038 -s dev

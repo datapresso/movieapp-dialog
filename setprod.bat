@@ -1,0 +1,1 @@
+cf login -a api.ng.bluemix.net -u cding@us.ibm.com -p wenwen2025 -s test

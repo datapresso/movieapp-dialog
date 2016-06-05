@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 
-  <display-name>What's in Theaters</display-name>
+  <display-name>Travel Security Advisor Dialog</display-name>
 
   <icon>
       <small-icon>/icons/favorite_selected.png</small-icon>

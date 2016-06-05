@@ -12,4 +12,9 @@
 yet ready to accept classify requests"
 }
 
+## NLC
+
 https://9f99e0fd-0324-4f8e-8dfc-64a3bea6c2bc:3ghfHwYk8utT@gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c7fa49x23-nlc-3317
+
+## Dialogs
+https://432f0825-386d-464e-9efa-a99dfe3ce3d9:tzjL3iqtePzn@gateway.watsonplatform.net/dialog/api/v1/dialogs

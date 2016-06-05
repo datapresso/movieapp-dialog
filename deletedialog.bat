@@ -1,0 +1,1 @@
+curl -v -u "5f240632-7c00-4ac6-b28d-87f525de4c74":"8OLmlkS22D7N" -X DELETE "https://gateway.watsonplatform.net/dialog/api/v1/dialogs/cd145972-5476-4085-8943-7ee8149e68de"

@@ -4,8 +4,8 @@ The What's in Theaters application showcases the best practices to follow to bui
 The application uses a conversational template that you can customize for your own application. This domain-independent template will help you to structure your dialogs according to how people naturally converse, thus helping you to bootstrap your future dialogs.
 
 This application is provided in two configurations:
-* **Configuration 1 (Dialog service)**: This version uses the Watson Dialog service to chat with users. Here's a [quick demo](http://watson-movieapp-dialog.mybluemix.net/watson-movieapp-dialog/dist/index.html#/).
-* **Configuration 2 (Dialog service and Watson Natural Language Classifier service)**: This version uses the Dialog service to chat with users and the [Classifier service](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/nl-classifier.html?cm_mc_uid=80306055592314351838101&cm_mc_sid_50200000=1445221614) to help identify user intent. Here's a [demo](http://watson-movieapp-nlcdialog.mybluemix.net/watson-movieapp-dialog/dist/index.html#/).
+* **Configuration 1 (Dialog service)**: This version uses the Watson Dialog service to chat with users. Here's a [quick demo](http://watson-tsaapp-dialog.mybluemix.net/watson-tsaapp-dialog/dist/index.html#/).
+* **Configuration 2 (Dialog service and Watson Natural Language Classifier service)**: This version uses the Dialog service to chat with users and the [Classifier service](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/nl-classifier.html?cm_mc_uid=80306055592314351838101&cm_mc_sid_50200000=1445221614) to help identify user intent. Here's a [demo](http://watson-tsaapp-nlcdialog.mybluemix.net/watson-tsaapp-dialog/dist/index.html#/).
 
 ## How the app works
 Users talk in natural language to the system to find movies that match the search criteria they've specified. The system is built to understand natural language that relates to searching for and selecting movies to watch. For example, saying "I'd like to see a recent R rated drama" causes the system to search the movie repository and to return the names of all R-rated dramas that have been released in the last 30 days.
@@ -47,12 +47,12 @@ Ensure that you have the following prerequisites before you start:
 In order to run the What's In Theaters app, you need to have a Dialog service instance bound to an app in your IBM Bluemix account. The following steps will guide you through the process. The instructions use Eclipse, but you can use the IDE of your choice. If you want to setup Configuration 1, add only the Dialog service. To set up Configuration 2, add the Dialog and Classifier services, and switch between the two configurations by changing some environment variables.
 
 ### Get the project from GitHub
-1. Clone the movieapp-dialog repository from GitHub by issuing one of the following commands in your terminal:
+1. Clone the tsaapp-dialog repository from GitHub by issuing one of the following commands in your terminal:
    ```
-   git clone https://github.com/watson-developer-cloud/movieapp-dialog.git
+   git clone https://github.com/watson-developer-cloud/tsaapp-dialog.git
    ```
    ```
-   git clone git@github.com:watson-developer-cloud/movieapp-dialog.git
+   git clone git@github.com:watson-developer-cloud/tsaapp-dialog.git
    ```
 
 2. Add the newly cloned repository to your local Eclipse workspace.
@@ -87,7 +87,7 @@ Complete one of the following sets of steps to add an instance of the Watson Dia
   4. Click **RESTAGE** to restart your app.  
 
 #### Uploading a dialog file
-After you bind an instance of the Dialog service to the app, you can use the credentials you received in the previous step to upload a dialog file. The dialog files for this application are in the project at `/movieapp-dialog/src/main/resources/dialog_files`. For Configuration 1, use `movieapp-dialog-file.xml`. For Configuration 2, use `movieapp-dialog+classifier-file.xml`.
+After you bind an instance of the Dialog service to the app, you can use the credentials you received in the previous step to upload a dialog file. The dialog files for this application are in the project at `/tsaapp-dialog/src/main/resources/dialog_files`. For Configuration 1, use `tsaapp-dialog-file.xml`. For Configuration 2, use `tsaapp-dialog+classifier-file.xml`.
 
 Use the following command to upload this file to Bluemix:
 ```
@@ -102,7 +102,7 @@ After the file is uploaded, a message similar to the following message is displa
 **Important**: Include the @ symbol before the *dialogFile* variable.
 
 #### Training a classifier
-After you bind an instance of the Classifier service to the app, you must train a classifier by using this service. You can use the sample training set packaged with the project at `/movieapp-dialog/src/main/resources/classifier_files`. You can upload the `train.csv` file by using the curl command that is specified in the [Classifier service documentation](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/natural-language-classifier/api/v1/?curl#create_classifier) and the Classifier service credentials you obtained in the previous step. The classifier is immediately in Training status. After the status changes to Available, the classifier is ready for use.
+After you bind an instance of the Classifier service to the app, you must train a classifier by using this service. You can use the sample training set packaged with the project at `/tsaapp-dialog/src/main/resources/classifier_files`. You can upload the `train.csv` file by using the curl command that is specified in the [Classifier service documentation](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/natural-language-classifier/api/v1/?curl#create_classifier) and the Classifier service credentials you obtained in the previous step. The classifier is immediately in Training status. After the status changes to Available, the classifier is ready for use.
 
 #### Setting up environment variables in Bluemix
 To run the What's in Theaters application on Bluemix, more environment variables are required:  
@@ -116,7 +116,7 @@ To view the home page of the app, open [https://*yourAppName*.mybluemix.net](htt
 
 ### Building the app
 This project is configured to be built with Maven. To deploy the app, complete the following steps in order:
-  1. In your Eclipse window, expand the *movieapp-dialog* project that you cloned from GitHub.
+  1. In your Eclipse window, expand the *tsaapp-dialog* project that you cloned from GitHub.
   2. Right-click the project and select `Maven -> Update Project` from the context menu to update Maven dependencies.
   3. Keep the default options, and click **OK**.
   4. Navigate to the location of your default deployment server. For Websphere Liberty, it might resemble the following path: `../LibertyRuntime/usr/servers/*server-name*`. Open the `server.env` file or create it, if it does not exist, and update the following entries:
@@ -138,11 +138,11 @@ This project is configured to be built with Maven. To deploy the app, complete t
     TMDB_API_KEY=tmdb_api_key
     ```
   5. Switch to the navigator view in Eclipse, right-click the `pom.xml`, and select `Run As -> Maven Install`. You may perform the Maven Install with the goals-> `clean install -Dmaven.test.skip=true -U` to skip integration tests and use the most updated plugins. Installation of Maven begins. During the installation, the following tasks are done:
-    * The JS code is compiled. That is, the various Angular JS files are aggregated, uglified, and compressed. Various other preprocessing is performed on the web code, and the output is copied to the `movieapp-dialog/src/main/webapp/dist` folder in the project.
+    * The JS code is compiled. That is, the various Angular JS files are aggregated, uglified, and compressed. Various other preprocessing is performed on the web code, and the output is copied to the `tsaapp-dialog/src/main/webapp/dist` folder in the project.
     * The Java code is compiled, and JUnit tests are executed against the Java code. The compiled Java and JavaScript code and various other artifacts that are required by the web project are copied to a temporary location, and a `.war` file is created.
     * The Maven installation instantiates a new Websphere Liberty Profile server, deploys the `.war` file to the server, starts the server, and runs a battery of integration tests against the deployed web application.
 
-This WAR file that resides in `/movieapp-dialog/target directory` is used to deploy the application on Bluemix in the next section.
+This WAR file that resides in `/tsaapp-dialog/target directory` is used to deploy the application on Bluemix in the next section.
 
 ### Deploying the app
 You can run the application on a local server or on Bluemix. Choose one of the following methods, and complete the steps:
@@ -151,10 +151,10 @@ You can run the application on a local server or on Bluemix. Choose one of the f
 2. In the **Servers** view, right-click and select `New -> Server`. The *Define a New Server* window is displayed.
 3. Select the **WebSphere Application Server Liberty Profile**, and click **Next**.  
 4. Configure the server with the default settings.  
-5. In the **Available** list in the **Add and Remove** dialog, select the *movieapp-dialog* project, and click **Add >**. The project is added to the runtime configuration for the server in the **Configured** list.
+5. In the **Available** list in the **Add and Remove** dialog, select the *tsaapp-dialog* project, and click **Add >**. The project is added to the runtime configuration for the server in the **Configured** list.
 6. Click **Finish**.
-7. Copy the *server.env* file which was edited previously from *movieapp-dialog/src/it/resources/server.env* to the root folder of the newly defined server (i.e. *wlp/usr/defaultserver/server.env*).  
-8. Start the new server, and open [http://localhost:serverPort/watson-movieapp-dialog/dist/index.html#/](http://localhost:serverPort/watson-movieapp-dialog/dist/index.html#/) in your favorite browser, where *serverPort* is the port on which your local server is running.
+7. Copy the *server.env* file which was edited previously from *tsaapp-dialog/src/it/resources/server.env* to the root folder of the newly defined server (i.e. *wlp/usr/defaultserver/server.env*).  
+8. Start the new server, and open [http://localhost:serverPort/watson-tsaapp-dialog/dist/index.html#/](http://localhost:serverPort/watson-tsaapp-dialog/dist/index.html#/) in your favorite browser, where *serverPort* is the port on which your local server is running.
 9. Chat with What's in Theaters!
 
 #### Deploying the app on the Websphere Liberty Profile in Bluemix
@@ -162,7 +162,7 @@ Deploy the WAR file that you built in the previous section by using Cloud Foundr
 1. Open the command prompt.
 2. Navigate to the directory that contains the WAR file you that you generated by running the following command in the terminal:
    ```
-   cd movieapp-dialog/target
+   cd tsaapp-dialog/target
    ```
 
 3. Connect to Bluemix by running the following command:
@@ -177,11 +177,11 @@ Deploy the WAR file that you built in the previous section by using Cloud Foundr
 where *yourUsername* is your Bluemix ID, *yourOrg* is your organization name in Bluemix, and *yourSpace* is your space name in Bluemix.
 5. Deploy the app to Bluemix by running the following command.
    ```
-   cf push <yourAppName> -p watson-movieapp-dialog.war
+   cf push <yourAppName> -p watson-tsaapp-dialog.war
    ```
 where, *yourAppName* is the name of your app.
 6. Navigate to [Bluemix](https://console.ng.bluemix.net/) to make sure the app is started. If it is not started, click **START**.
-7. To view the home page of the app, open [https://yourAppName.mybluemix.net/watson-movieapp-dialog/dist/index.html#/](https://yourAppName.mybluemix.net/watson-movieapp-dialog/dist/index.html#/), where *yourAppName* is the specific name of your app.
+7. To view the home page of the app, open [https://yourAppName.mybluemix.net/watson-tsaapp-dialog/dist/index.html#/](https://yourAppName.mybluemix.net/watson-tsaapp-dialog/dist/index.html#/), where *yourAppName* is the specific name of your app.
 8. Chat with What's in Theaters!
 
 ## Automation
@@ -203,5 +203,5 @@ The dialog questions and answers from the .xml file (see **Uploading a dialog fi
 * [Natural Language Classifier documentation](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/)
 * [Natural Language Classifier API reference](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/natural-language-classifier/api/v1/)
 * [Dialog service tutorial](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/dialog/tutorial_advanced.shtml): Design your own dialog by using a tutorial.
-* [Natural conversation tutorial](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/ega_docs/dialog_ega.shtml#naturalconvo_design): The What's In Theaters app uses a natural conversation template as the basis for the dialog. To design your own dialog in natural conversation, complete this tutorial. See the template here: `/movieapp-dialog/src/main/resources/dialog_files/CA_Trans_Template.xml`.
+* [Natural conversation tutorial](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/ega_docs/dialog_ega.shtml#naturalconvo_design): The What's In Theaters app uses a natural conversation template as the basis for the dialog. To design your own dialog in natural conversation, complete this tutorial. See the template here: `/tsaapp-dialog/src/main/resources/dialog_files/CA_Trans_Template.xml`.
 * Understanding how Dialog uses the output from the Natural Language Classier: http://heidloff.net/article/cognitive-question-answer-systems-bluemix-watson

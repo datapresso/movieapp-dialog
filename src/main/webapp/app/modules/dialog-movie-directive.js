@@ -23,7 +23,7 @@
      *
      * @description
      *
-     * Renders a movie within the UI. The WDS API will notify the movieapp
+     * Renders a movie within the UI. The WDS API will notify the tsaapp
      * server side code to get a list of movies from themoviedb.org. At this point
      * a list of movies will be returned and a <movie> element added for each movie.
      * The movie is a clickable element which causes the preview panel to load.

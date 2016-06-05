@@ -2,10 +2,10 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ibm.watson.app</groupId>
-    <artifactId>movieapp-dialog</artifactId>
+    <artifactId>tsaapp-dialog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>movieapp-dialog</name>
+    <name>tsaapp-dialog</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,7 +36,7 @@
                 <version>2.3</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <warName>movieapp-dialog</warName>
+                    <warName>tsaapp-dialog</warName>
                     <packagingExcludes>app/</packagingExcludes>
                 </configuration>
             </plugin>
@@ -223,7 +223,7 @@
                                 <licenseCode>L-MCAO-9SYMVC</licenseCode>
                                 <version>8.5.5_08</version>
                             </install>
-                            <appArchive>${project.build.directory}/movieapp-dialog.war</appArchive>
+                            <appArchive>${project.build.directory}/tsaapp-dialog.war</appArchive>
                             <configFile>${basedir}/src/it/resources/server.xml</configFile>
                             <serverEnv>${basedir}/src/it/resources/server.env</serverEnv>
                             <skip>${skipITs}</skip>

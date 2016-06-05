@@ -22,8 +22,8 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.google.gson.JsonObject;
-import com.ibm.watson.movieapp.dialog.payload.WDSConversationPayload;
-import com.ibm.watson.movieapp.dialog.rest.WDSBlueMixProxyResource;
+import com.ibm.watson.tsaapp.dialog.payload.WDSConversationPayload;
+import com.ibm.watson.tsaapp.dialog.rest.WDSBlueMixProxyResource;
 
 @RunWith(MockitoJUnitRunner.class)
 public class WDSBlueMixProxyResourceTest {
